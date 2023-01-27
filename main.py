@@ -8,11 +8,11 @@ def imprimeMenu():
     print("3 - Depositar na Conta")
     print("4 - Sacar na Conta")
 
+
 print("Bem-vindo")
 bancoUfrpe = Banco("UABJ")
 imprimeMenu()
 escolha = int(input("digite a opção desejada:"))
-
 while escolha > 0:
     if escolha == 1:
         print("Criando Conta...")
@@ -34,9 +34,11 @@ while escolha > 0:
         numConta = int(input("digite o numero da conta:"))
         valor = int(input("digite o valor que deseja sacar:"))
         resp = bancoUfrpe.sacar(numConta, valor)
-        if resp: 
+        if resp:
             print("Valor Sacado")
         else:
             print("Saldo Insuficiente")
+    else:
+        bancoUfrpe.closeConnection()
     imprimeMenu()
     escolha = int(input("digite a opção desejada:"))
